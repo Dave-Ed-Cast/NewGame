@@ -36,21 +36,22 @@ struct GameViewUI: UIViewRepresentable {
 struct GameView: View {
     
     @Binding var currentGameState: GameState
-    @StateObject var gameLogic: GameLogic =  GameLogic.shared
+    @StateObject var gameLogic: GameLogic = GameLogic.shared
     @State var sceneWrapper = SceneWrapper()
     
     var body: some View {
         ZStack {
-            SpriteView(scene: self.sceneWrapper.scene)
+            SpriteView(scene: sceneWrapper.scene)
 //                .onChange(of: gameLogic.showPauseMenu, perform: { value in
 //                    if(gameLogic.showPauseMenu == false){
 //                        sceneWrapper.scene.isPaused = false
 //                    }
 //                })
+                .ignoresSafeArea()
         }
     }
 }
 
 #Preview {
-    GameView(currentGameState: .constant(.playing))
+    GameView(currentGameState: .constant(GameState.playing))
 }

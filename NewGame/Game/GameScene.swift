@@ -27,30 +27,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    //game logic
+    var gameLogic: GameLogic = GameLogic.shared
+    
+    //camera
     let cam = SKCameraNode()
     
+    //logo and title
     private var logo = SKSpriteNode()
     private var logoWalkingFrames: [SKTexture] = []
     
+    //important variables
     var deltaTime: TimeInterval = 0
+    private var lastUpdateTime : TimeInterval = 0
+    
+    //variables
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     var pointsMultiplier = 1
     var isPlayerImmortal = false
     
-    private var lastUpdateTime : TimeInterval = 0
-    
+    //score
     let scoreLabel = SKLabelNode(fontNamed: "Futura-CondensedMedium")
     let bestScoreLabel = SKLabelNode(fontNamed: "Futura-CondensedMedium")
-                                        //"ChalkboardSE-Regular")
     
+    //buttons
     var playButton = SKSpriteNode()
     var exitButton = SKSpriteNode()
     var musicButton = SKSpriteNode()
     
     var musicButtonIsActive = true {
         didSet{
-            if musicButtonIsActive{ //it's becoming inactive
+            if musicButtonIsActive{
                 musicButton.zPosition = -100
 
             } else {
@@ -63,10 +71,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var playButtonIsActive = true
     var exitButtonIsActive = true
     
+    //timers
     var gameTimer: Timer?
     var groundTimer: Timer?
     var groundDeleteTimer: Timer?
-    var gameOver = false
     
     var musicActive = true {
         didSet{
@@ -252,7 +260,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func createMenu(){
-        if gameOver{
+        if !gameLogic.isGameOver {
             //restart menu
         } else {
             //first time menu

@@ -11,6 +11,4 @@ enum GameState {
     case mainScreen
     case playing
     case gameOver
-    case tutorial
-    case chooseChar
 }

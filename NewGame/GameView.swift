@@ -52,5 +52,5 @@ struct GameView: View {
 }
 
 #Preview {
-    GameView()
+    GameView(currentGameState: .constant(.playing))
 }

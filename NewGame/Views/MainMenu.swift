@@ -22,6 +22,7 @@ struct MainMenu: View {
                     self.currentGameState = .playing
                 }
             }, buttonImage: "ciao", pressedImage: "ciao", textView: Text("ciao"), textColor: .white, textOffset: 0)
+            .responsiveFrame(widthPercentage: 15, heightPercentage: 10)
         }
         
     }

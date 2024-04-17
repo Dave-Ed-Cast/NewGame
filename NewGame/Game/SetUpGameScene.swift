@@ -14,8 +14,8 @@ extension GameScene {
     func createBackground(){
         let background = SKSpriteNode(imageNamed: "background")
         background.zPosition = -1
-        background.position = CGPoint(x: 400, y: 100)
-        background.setScale(0.5)
+        background.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2)
+        background.setScale(0.6)
         addChild(background)
     }
     

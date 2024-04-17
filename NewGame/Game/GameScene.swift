@@ -22,6 +22,10 @@ class SceneWrapper{
 
 class GameScene: SKScene {
     
+    var isMovingUp: Bool = false
+    var player: SKSpriteNode = SKSpriteNode(imageNamed: "player")
+    var playerVelocity = CGPoint.self
+    
     override func didMove(to view: SKView) {
         // Setup your scene here
         createBackground()
@@ -30,16 +34,20 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+        
+        movePlayerUpAndDown()
+        
+        
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // Called when a touch begins
+        isMovingUp = true
+        print(isMovingUp)
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // Called when a touch moves
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        isMovingUp = false
+        print(isMovingUp)
     }
-    
-    
 }
-

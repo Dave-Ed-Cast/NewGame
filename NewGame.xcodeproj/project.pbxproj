@@ -21,7 +21,7 @@
 		3EE9E5F82BCF18C500AB18CC /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE9E5F72BCF18C500AB18CC /* MainMenu.swift */; };
 		3EE9E5FA2BCF19A300AB18CC /* SetUpGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE9E5F92BCF19A300AB18CC /* SetUpGameScene.swift */; };
 		3EF078362BCFF7D700500B81 /* temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF078352BCFF7D700500B81 /* temp.swift */; };
-		3EF078382BCFFB8400500B81 /* SetUpPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF078372BCFFB8400500B81 /* SetUpPlayer.swift */; };
+		3EF078382BCFFB8400500B81 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF078372BCFFB8400500B81 /* Player.swift */; };
 		3EF0783D2BD0010800500B81 /* MainMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0783C2BD0010800500B81 /* MainMenuButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +41,7 @@
 		3EE9E5F72BCF18C500AB18CC /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		3EE9E5F92BCF19A300AB18CC /* SetUpGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpGameScene.swift; sourceTree = "<group>"; };
 		3EF078352BCFF7D700500B81 /* temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = temp.swift; sourceTree = "<group>"; };
-		3EF078372BCFFB8400500B81 /* SetUpPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpPlayer.swift; sourceTree = "<group>"; };
+		3EF078372BCFFB8400500B81 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		3EF0783C2BD0010800500B81 /* MainMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,7 +83,7 @@
 				3E6353C72BCF0D5E006641EA /* GameLogic.swift */,
 				3E6353B42BCF0C51006641EA /* GameScene.swift */,
 				3EE9E5F92BCF19A300AB18CC /* SetUpGameScene.swift */,
-				3EF078372BCFFB8400500B81 /* SetUpPlayer.swift */,
+				3EF078372BCFFB8400500B81 /* Player.swift */,
 				3EF078352BCFF7D700500B81 /* temp.swift */,
 			);
 			path = Game;
@@ -209,7 +209,7 @@
 				3E6353AF2BCF0C51006641EA /* AppDelegate.swift in Sources */,
 				3E6353CA2BCF0DD6006641EA /* Constants.swift in Sources */,
 				3EF078362BCFF7D700500B81 /* temp.swift in Sources */,
-				3EF078382BCFFB8400500B81 /* SetUpPlayer.swift in Sources */,
+				3EF078382BCFFB8400500B81 /* Player.swift in Sources */,
 				3E6353CC2BCF0DE6006641EA /* ResponsiveFrame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

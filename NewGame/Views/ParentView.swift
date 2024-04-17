@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct ParentView: View {
+    
     @State var currentGameState: GameState = .mainScreen
     @StateObject var gameLogic: GameLogic = GameLogic.shared
+    
     var body: some View {
+        
         switch currentGameState {
             
         case .playing:
             GameView(currentGameState: $currentGameState)
                 .environmentObject(gameLogic)
-        
-//            GameOverView(currentGameState: $currentGameState, score: $gameLogic.currentScore)
             
         case .mainScreen:
             MainMenu(currentGameState: $currentGameState)

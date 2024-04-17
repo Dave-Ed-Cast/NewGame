@@ -20,9 +20,11 @@ struct ParentView: View {
 //            GameOverView(currentGameState: $currentGameState, score: $gameLogic.currentScore)
             
         case .mainScreen:
-            MainMenu()
+            MainMenu(currentGameState: $currentGameState)
+                .environmentObject(gameLogic)
         case .gameOver:
-            MainMenu()
+            MainMenu(currentGameState: $currentGameState)
+                .environmentObject(gameLogic)
         }
     }
 }

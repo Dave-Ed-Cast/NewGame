@@ -8,11 +8,25 @@
 import SwiftUI
 
 struct MainMenu: View {
+    
+    @StateObject var gameLogic: GameLogic = GameLogic.shared
+    @Binding var currentGameState: GameState
+    
     var body: some View {
-        Text("Hello, World!")
+        ZStack {
+            
+            Image("background")
+            
+            MainMenuButton(optionToExecute: {
+                withAnimation {
+                    self.currentGameState = .playing
+                }
+            }, buttonImage: "ciao", pressedImage: "ciao", textView: Text("ciao"), textColor: .white, textOffset: 0)
+        }
+        
     }
 }
 
 #Preview {
-    MainMenu()
+    MainMenu(currentGameState: .constant(GameState.mainScreen))
 }

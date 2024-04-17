@@ -525,24 +525,8 @@ import Foundation
          addChild(scoreLabel)
          
      }
-         
-     func createBG(){
-         let background = SKSpriteNode(imageNamed: "background")
-         background.zPosition = -10
-         background.position.y = 70
-         addChild(background)
-     }
      
-     func createPlayer() {
-         player.position.x = -265
-         //player.position.y = -200
-         player.zPosition = 1
-         player.name = "Player"
-         addChild(player)
-         let playerBody = CGSize(width: player.size.width - 30, height: player.size.height - 20)
-         player.physicsBody = SKPhysicsBody(rectangleOf: playerBody)
-         player.physicsBody?.categoryBitMask = 1
-     }
+     
      
      func createSnow() {
          if let particles = SKEmitterNode(fileNamed: "SnowParticle"){

@@ -25,12 +25,20 @@ extension GameScene {
     
     func movePlayerUpAndDown() {
         
+        playerVelocity.y *= 0.5
+        playerVelocity.y = max(-maxVelocity, min(playerVelocity.y, maxVelocity))
+        
+        player.position.y += playerVelocity.y
         player.position.y += isMovingUp ? 5 : -5
         
         let minY = player.size.height / 1.5
         let maxY = size.height - player.size.height / 1.5
         
-           
         player.position.y = max(min(player.position.y, maxY), minY)
+        
+        // the player is not moving up and moving downwards => reduce the velocity, else increse
+        playerVelocity.y += (!isMovingUp && playerVelocity.y < 0) ? 1 : -1
+        
+        
     }
 }

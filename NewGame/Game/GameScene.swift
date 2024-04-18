@@ -24,7 +24,8 @@ class GameScene: SKScene {
     
     var isMovingUp: Bool = false
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player")
-    var playerVelocity = CGPoint.self
+    var playerVelocity = CGPoint(x: 0, y: 1)
+    let maxVelocity: CGFloat = 10.0
     
     override func didMove(to view: SKView) {
         // Setup your scene here

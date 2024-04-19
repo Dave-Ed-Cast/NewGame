@@ -20,17 +20,20 @@ class SceneWrapper{
     }
 }
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var isMovingUp: Bool = false
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player")
     var playerVelocity = CGPoint(x: 0, y: 1)
     let maxVelocity: CGFloat = 10.0
+    var score: Int = 0
     
     override func didMove(to view: SKView) {
         // Setup your scene here
+        physicsWorld.contactDelegate = self
         createBackground()
         createPlayer()
+        startCreatingCollectibles()
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -38,17 +41,23 @@ class GameScene: SKScene {
         
         movePlayerUpAndDown()
         
-        
-        
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        if contact.bodyA.categoryBitMask == 1 || contact.bodyB.categoryBitMask == 1 {
+            // Increment score or handle collectible collection
+            if let collectibleNode = (contact.bodyA.categoryBitMask == 2) ? contact.bodyA.node : contact.bodyB.node {
+                collectibleNode.removeFromParent()
+            }
+            score += 1
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         isMovingUp = true
-        print(isMovingUp)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         isMovingUp = false
-        print(isMovingUp)
     }
 }

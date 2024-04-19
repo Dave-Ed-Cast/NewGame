@@ -13,13 +13,14 @@ extension GameScene {
     func createPlayer() {
         
         player.position = CGPoint(x: UIScreen.main.bounds.size.width / 4 , y: UIScreen.main.bounds.height / 3)
-        player.zPosition = 0
+        player.zPosition = 1
         player.size = CGSize(width: 100, height: 100)
         player.name = "Player"
         addChild(player)
-        player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
+        player.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: player.size.width / 2, height: player.size.height / 2))
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.categoryBitMask = 1
+        player.physicsBody?.contactTestBitMask = 1
         
     }
     
@@ -36,7 +37,7 @@ extension GameScene {
         
         player.position.y = max(min(player.position.y, maxY), minY)
         
-        // the player is not moving up and moving downwards => reduce the velocity, else increse
+        // the player is not moving up and moving downwards => reduce the velocity, else increase
         playerVelocity.y += (!isMovingUp && playerVelocity.y < 0) ? 1 : -1
         
         

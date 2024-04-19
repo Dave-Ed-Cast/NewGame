@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E0A0ACF2BD30ABE004F0E9D /* Collectible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0A0ACE2BD30ABE004F0E9D /* Collectible.swift */; };
 		3E11EE822BCF1C4700A39BCD /* ParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11EE812BCF1C4700A39BCD /* ParentView.swift */; };
 		3E6353AF2BCF0C51006641EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6353AE2BCF0C51006641EA /* AppDelegate.swift */; };
 		3E6353B52BCF0C51006641EA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6353B42BCF0C51006641EA /* GameScene.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E0A0ACE2BD30ABE004F0E9D /* Collectible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collectible.swift; sourceTree = "<group>"; };
 		3E11EE812BCF1C4700A39BCD /* ParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentView.swift; sourceTree = "<group>"; };
 		3E6353AB2BCF0C51006641EA /* NewGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E6353AE2BCF0C51006641EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				3E6353C72BCF0D5E006641EA /* GameLogic.swift */,
 				3E6353B42BCF0C51006641EA /* GameScene.swift */,
 				3EE9E5F92BCF19A300AB18CC /* SetUpGameScene.swift */,
+				3E0A0ACE2BD30ABE004F0E9D /* Collectible.swift */,
 				3EF078372BCFFB8400500B81 /* Player.swift */,
 				3EF078352BCFF7D700500B81 /* temp.swift */,
 			);
@@ -202,6 +205,7 @@
 				3E6353B52BCF0C51006641EA /* GameScene.swift in Sources */,
 				3E6353B72BCF0C51006641EA /* GameViewController.swift in Sources */,
 				3E6353C62BCF0C76006641EA /* GameView.swift in Sources */,
+				3E0A0ACF2BD30ABE004F0E9D /* Collectible.swift in Sources */,
 				3E11EE822BCF1C4700A39BCD /* ParentView.swift in Sources */,
 				3EF0783D2BD0010800500B81 /* MainMenuButton.swift in Sources */,
 				3EE9E5F82BCF18C500AB18CC /* MainMenu.swift in Sources */,

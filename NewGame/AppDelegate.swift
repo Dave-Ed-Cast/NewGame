@@ -13,7 +13,6 @@ struct AppDelegate: App {
     var body: some Scene {
         WindowGroup {
             ParentView()
-                .preferredColorScheme(.light).statusBarHidden(true)
         }
     }
 }

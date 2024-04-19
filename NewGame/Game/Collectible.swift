@@ -12,19 +12,30 @@ extension GameScene {
     
     func createCollectible() {
         
+        let responsiveWidth = UIScreen.main.bounds.size.width
+        let responsiveHeight = UIScreen.main.bounds.size.height * 1.5
+        let randomWidth = CGFloat.random(in: (responsiveWidth / 3)...responsiveWidth)
+        
         let collectible = SKSpriteNode(imageNamed: "expOrb")
         collectible.zPosition = 0
         collectible.size = CGSize(width: 40, height: 40)
         collectible.physicsBody = SKPhysicsBody(rectangleOf: collectible.size)
         collectible.physicsBody?.affectedByGravity = false
-        collectible.physicsBody?.categoryBitMask = 2 //unique category bitmask
+        collectible.physicsBody?.categoryBitMask = 2 //this is for contact collisions, must be unique
         collectible.physicsBody?.contactTestBitMask = 1 //set to player's category bitmask
-        collectible.position = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: UIScreen.main.bounds.height / 2)
+        collectible.position = CGPoint(x: randomWidth, y: responsiveHeight)
         addChild(collectible)
-                
-        let fallXAction = SKAction.moveTo(x: -50, duration: 5)
-        let fallYAction = SKAction.moveTo(y: -50, duration: 3)
-        let sequence = SKAction.sequence([fallXAction, fallYAction])
+        
+        
+        let randomX = CGFloat.random(in: 0...(UIScreen.main.bounds.size.width - collectible.size.width))
+        let randomY = CGFloat.random(in: 0...(UIScreen.main.bounds.size.height - collectible.size.height))
+        
+        let randomDurationX = Double.random(in: 4...8)
+        let randomDurationY = Double.random(in: 4...8)
+        
+        let fallXAction = SKAction.moveTo(x: -(UIScreen.main.bounds.size.width / randomX), duration: randomDurationX)
+        let fallYAction = SKAction.moveTo(y: -randomY, duration: randomDurationY)
+        let sequence = SKAction.group([fallXAction, fallYAction])
         collectible.run(sequence)
         
         let removeAction = SKAction.removeFromParent()

@@ -14,9 +14,9 @@ extension GameScene {
         
         //get the screen size
         let responsiveWidth = UIScreen.main.bounds.size.width
-        let responsiveHeight = UIScreen.main.bounds.size.height * 1.5
+        let responsiveHeight = UIScreen.main.bounds.size.height
         
-        //define random width according to screen size
+        //define random width according to screen size for gameplay purposes
         let randomWidth = CGFloat.random(in: (responsiveWidth / 3)...responsiveWidth)
         
         //create tbe collectible
@@ -26,27 +26,27 @@ extension GameScene {
         collectible.physicsBody = SKPhysicsBody(rectangleOf: collectible.size)
         collectible.physicsBody?.affectedByGravity = false
         collectible.physicsBody?.categoryBitMask = 2 //this is for contact collisions, must be unique
-        collectible.physicsBody?.contactTestBitMask = 1 //set to player's category bitmask
+        collectible.physicsBody?.contactTestBitMask = 1 //must equal player's category bitmask
         collectible.position = CGPoint(x: randomWidth, y: responsiveHeight)
         addChild(collectible)
         
         //define random factors to adjust gmaeplay difficulty
-        let randomX = CGFloat.random(in: 0...(UIScreen.main.bounds.size.width - collectible.size.width))
-        let randomY = CGFloat.random(in: 0...(UIScreen.main.bounds.size.height - collectible.size.height))
+        let randomX = CGFloat.random(in: responsiveWidth / 3...responsiveWidth - collectible.size.width / 2)
+        let randomY = CGFloat.random(in: 0...responsiveHeight - (collectible.size.height / 2))
         
         //define duration for the same purpose as above
         let randomDurationX = Double.random(in: 4...8)
         let randomDurationY = Double.random(in: 4...8)
         
         //simulate the falling
-        let fallXAction = SKAction.moveTo(x: -(UIScreen.main.bounds.size.width / randomX), duration: randomDurationX)
+        let fallXAction = SKAction.moveTo(x: -randomX, duration: randomDurationX)
         let fallYAction = SKAction.moveTo(y: -randomY, duration: randomDurationY)
         let sequence = SKAction.group([fallXAction, fallYAction])
         collectible.run(sequence)
         
         //remove the child if it's not collected
         let removeAction = SKAction.removeFromParent()
-        let removeWhenOutOfBounds = SKAction.sequence([SKAction.wait(forDuration: 7), removeAction])
+        let removeWhenOutOfBounds = SKAction.sequence([SKAction.wait(forDuration: 8), removeAction])
         collectible.run(removeWhenOutOfBounds)
     }
     
@@ -54,7 +54,7 @@ extension GameScene {
         let create = SKAction.run {
             self.createCollectible()
         }
-        let wait = SKAction.wait(forDuration: 1) 
+        let wait = SKAction.wait(forDuration: 2)
         let sequence = SKAction.sequence([create, wait])
         let repeatForever = SKAction.repeatForever(sequence)
         run(repeatForever)

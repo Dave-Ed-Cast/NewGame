@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E0A0ACF2BD30ABE004F0E9D /* Collectible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0A0ACE2BD30ABE004F0E9D /* Collectible.swift */; };
+		3E0A0AD12BD3D318004F0E9D /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0A0AD02BD3D317004F0E9D /* ScoreView.swift */; };
 		3E11EE822BCF1C4700A39BCD /* ParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E11EE812BCF1C4700A39BCD /* ParentView.swift */; };
 		3E6353AF2BCF0C51006641EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6353AE2BCF0C51006641EA /* AppDelegate.swift */; };
 		3E6353B52BCF0C51006641EA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6353B42BCF0C51006641EA /* GameScene.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		3E0A0ACE2BD30ABE004F0E9D /* Collectible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collectible.swift; sourceTree = "<group>"; };
+		3E0A0AD02BD3D317004F0E9D /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		3E11EE812BCF1C4700A39BCD /* ParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentView.swift; sourceTree = "<group>"; };
 		3E6353AB2BCF0C51006641EA /* NewGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E6353AE2BCF0C51006641EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,7 +64,7 @@
 				3E6353C52BCF0C76006641EA /* GameView.swift */,
 				3E11EE812BCF1C4700A39BCD /* ParentView.swift */,
 				3EE9E5F72BCF18C500AB18CC /* MainMenu.swift */,
-				3EF0783B2BD000E100500B81 /* Menu HUD */,
+				3EF0783B2BD000E100500B81 /* HUD */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -119,12 +121,13 @@
 			path = NewGame;
 			sourceTree = "<group>";
 		};
-		3EF0783B2BD000E100500B81 /* Menu HUD */ = {
+		3EF0783B2BD000E100500B81 /* HUD */ = {
 			isa = PBXGroup;
 			children = (
 				3EF0783C2BD0010800500B81 /* MainMenuButton.swift */,
+				3E0A0AD02BD3D317004F0E9D /* ScoreView.swift */,
 			);
-			path = "Menu HUD";
+			path = HUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +209,7 @@
 				3EF0783D2BD0010800500B81 /* MainMenuButton.swift in Sources */,
 				3EE9E5F82BCF18C500AB18CC /* MainMenu.swift in Sources */,
 				3E6353C82BCF0D5E006641EA /* GameLogic.swift in Sources */,
+				3E0A0AD12BD3D318004F0E9D /* ScoreView.swift in Sources */,
 				3E6353AF2BCF0C51006641EA /* AppDelegate.swift in Sources */,
 				3E6353CA2BCF0DD6006641EA /* Constants.swift in Sources */,
 				3EF078362BCFF7D700500B81 /* temp.swift in Sources */,

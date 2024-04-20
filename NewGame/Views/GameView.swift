@@ -42,13 +42,18 @@ struct GameView: View {
     var body: some View {
         ZStack {
             SpriteView(scene: sceneWrapper.scene)
-//                .onChange(of: gameLogic.showPauseMenu, perform: { value in
-//                    if(gameLogic.showPauseMenu == false){
-//                        sceneWrapper.scene.isPaused = false
-//                    }
-//                })
-                .ignoresSafeArea()
+            //                .onChange(of: gameLogic.showPauseMenu, perform: { value in
+            //                    if(gameLogic.showPauseMenu == false){
+            //                        sceneWrapper.scene.isPaused = false
+            //                    }
+            //                })
+            
+            
+            ScoreView(gameLogic: GameLogic.shared)
+                .position(CGPoint(x: UIScreen.main.bounds.width / 1.8, y: UIScreen.main.bounds.height / 8))
+            
         }
+        .ignoresSafeArea()
     }
 }
 

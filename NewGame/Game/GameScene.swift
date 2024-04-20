@@ -22,11 +22,11 @@ class SceneWrapper{
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    var gameLogic: GameLogic = GameLogic.shared
     var isMovingUp: Bool = false
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player")
     var playerVelocity = CGPoint(x: 0, y: 1)
     let maxVelocity: CGFloat = 10.0
-    var score: Int = 0
     
     override func didMove(to view: SKView) {
         // Setup your scene here
@@ -49,7 +49,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if let collectibleNode = (contact.bodyA.categoryBitMask == 2) ? contact.bodyA.node : contact.bodyB.node {
                 collectibleNode.removeFromParent()
             }
-            score += 1
+            gameLogic.currentScore += 1
         }
     }
     

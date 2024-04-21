@@ -16,6 +16,7 @@ struct ScoreView: View {
             Text("SCORE: \(gameLogic.currentScore)")
                 .font(.title2)
                 .fontWeight(.black)
+                .foregroundStyle(.white)
             Spacer()
         }
         

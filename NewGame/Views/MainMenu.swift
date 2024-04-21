@@ -16,7 +16,6 @@ struct MainMenu: View {
         ZStack {
             
             Image("background")
-            
             MainMenuButton(optionToExecute: {
                 withAnimation {
                     self.currentGameState = .playing

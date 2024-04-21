@@ -13,6 +13,7 @@ struct AppDelegate: App {
     var body: some Scene {
         WindowGroup {
             ParentView()
+                .previewInterfaceOrientation(.landscapeRight)
         }
     }
 }

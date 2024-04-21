@@ -29,7 +29,7 @@
 		3E0A0ACE2BD30ABE004F0E9D /* Collectible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collectible.swift; sourceTree = "<group>"; };
 		3E0A0AD02BD3D317004F0E9D /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		3E11EE812BCF1C4700A39BCD /* ParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentView.swift; sourceTree = "<group>"; };
-		3E6353AB2BCF0C51006641EA /* NewGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E6353AB2BCF0C51006641EA /* BirdGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirdGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E6353AE2BCF0C51006641EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E6353B42BCF0C51006641EA /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		3E6353B92BCF0C51006641EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 		3E6353AC2BCF0C51006641EA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3E6353AB2BCF0C51006641EA /* NewGame.app */,
+				3E6353AB2BCF0C51006641EA /* BirdGame.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,9 +130,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3E6353AA2BCF0C51006641EA /* NewGame */ = {
+		3E6353AA2BCF0C51006641EA /* BirdGame */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3E6353C22BCF0C51006641EA /* Build configuration list for PBXNativeTarget "NewGame" */;
+			buildConfigurationList = 3E6353C22BCF0C51006641EA /* Build configuration list for PBXNativeTarget "BirdGame" */;
 			buildPhases = (
 				3E6353A72BCF0C51006641EA /* Sources */,
 				3E6353A82BCF0C51006641EA /* Frameworks */,
@@ -142,9 +142,9 @@
 			);
 			dependencies = (
 			);
-			name = NewGame;
+			name = BirdGame;
 			productName = NewGame;
-			productReference = 3E6353AB2BCF0C51006641EA /* NewGame.app */;
+			productReference = 3E6353AB2BCF0C51006641EA /* BirdGame.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -162,7 +162,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3E6353A62BCF0C51006641EA /* Build configuration list for PBXProject "NewGame" */;
+			buildConfigurationList = 3E6353A62BCF0C51006641EA /* Build configuration list for PBXProject "BirdGame" */;
 			compatibilityVersion = "Xcode 15.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -175,7 +175,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3E6353AA2BCF0C51006641EA /* NewGame */,
+				3E6353AA2BCF0C51006641EA /* BirdGame */,
 			);
 		};
 /* End PBXProject section */
@@ -414,7 +414,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3E6353A62BCF0C51006641EA /* Build configuration list for PBXProject "NewGame" */ = {
+		3E6353A62BCF0C51006641EA /* Build configuration list for PBXProject "BirdGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E6353C02BCF0C51006641EA /* Debug */,
@@ -423,7 +423,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3E6353C22BCF0C51006641EA /* Build configuration list for PBXNativeTarget "NewGame" */ = {
+		3E6353C22BCF0C51006641EA /* Build configuration list for PBXNativeTarget "BirdGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E6353C32BCF0C51006641EA /* Debug */,

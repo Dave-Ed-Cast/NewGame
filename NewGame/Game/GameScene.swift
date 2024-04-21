@@ -9,7 +9,7 @@ import SpriteKit
 import GameplayKit
 import SwiftUI
 
-class SceneWrapper{
+class SceneWrapper {
     var scene = GameScene()
     init() {
         var screenWidth: CGFloat { UIScreen.main.bounds.size.width }

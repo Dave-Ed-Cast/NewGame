@@ -42,6 +42,7 @@ struct GameView: View {
     var body: some View {
         ZStack {
             SpriteView(scene: sceneWrapper.scene)
+                
             //                .onChange(of: gameLogic.showPauseMenu, perform: { value in
             //                    if(gameLogic.showPauseMenu == false){
             //                        sceneWrapper.scene.isPaused = false

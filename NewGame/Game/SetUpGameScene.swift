@@ -17,8 +17,6 @@ extension GameScene {
         for i in 0...8 {
             
             let layer: SKSpriteNode = SKSpriteNode(imageNamed: "\(folderURL)/\(i)")
-            let layerPosition = backgroundLayers[i].position
-            let layerSizeWidth = backgroundLayers[i].size.width
             
             layer.zPosition = -1
             layer.position = CGPoint(x: responsiveWidth / 2, y: responsiveHeight / 2)
@@ -26,10 +24,10 @@ extension GameScene {
             backgroundLayers.append(layer)
             
             let replicatedLayer = backgroundLayers[i].copy() as! SKSpriteNode
-            replicatedLayer.position = CGPoint(x: layerPosition.x + layerSizeWidth, y: layerPosition.y)
+            replicatedLayer.position = CGPoint(x: backgroundLayers[i].position.x + backgroundLayers[i].size.width, y: backgroundLayers[i].position.y)
             
-            let moveLeftAction = SKAction.moveBy(x: -layerSizeWidth, y: 0, duration: Double(i) * sqrt(0.5))
-            let resetPositionAction = SKAction.moveBy(x: layerSizeWidth, y: 0, duration: 0)
+            let moveLeftAction = SKAction.moveBy(x: -backgroundLayers[i].size.width, y: 0, duration: 8 * sqrt(Double(i + 1)))
+            let resetPositionAction = SKAction.moveBy(x: backgroundLayers[i].size.width, y: 0, duration: 0)
             let sequenceAction = SKAction.sequence([moveLeftAction, resetPositionAction])
             let repeatForeverAction = SKAction.repeatForever(sequenceAction)
             

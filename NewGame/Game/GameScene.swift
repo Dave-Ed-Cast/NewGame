@@ -22,15 +22,23 @@ class SceneWrapper {
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    //get the screen size
+    let responsiveWidth = UIScreen.main.bounds.size.width
+    let responsiveHeight = UIScreen.main.bounds.size.height
+    
     var gameLogic: GameLogic = GameLogic.shared
     var isMovingUp: Bool = false
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player")
     var playerVelocity = CGPoint(x: 0, y: 1)
     let maxVelocity: CGFloat = 10.0
+    var backgroundLayers: [SKSpriteNode] = []
+    
     
     override func didMove(to view: SKView) {
         // Setup your scene here
         physicsWorld.contactDelegate = self
+        
+
         createBackground()
         createPlayer()
         startCreatingCollectibles()

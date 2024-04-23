@@ -12,17 +12,13 @@ extension GameScene {
     
     func createCollectible() {
         
-        //get the screen size
-        let responsiveWidth = UIScreen.main.bounds.size.width
-        let responsiveHeight = UIScreen.main.bounds.size.height
-        
         //define random width according to screen size for gameplay purposes
         let randomWidth = CGFloat.random(in: (responsiveWidth / 3)...responsiveWidth)
         
         //create tbe collectible
-        let collectible = SKSpriteNode(imageNamed: "expOrb")
+        let collectible = SKSpriteNode(imageNamed: "pickup")
         collectible.zPosition = 0
-        collectible.size = CGSize(width: 40, height: 40)
+        collectible.size = CGSize(width: 35, height: 60)
         collectible.physicsBody = SKPhysicsBody(rectangleOf: collectible.size)
         collectible.physicsBody?.affectedByGravity = false
         collectible.physicsBody?.categoryBitMask = 2 //this is for contact collisions, must be unique

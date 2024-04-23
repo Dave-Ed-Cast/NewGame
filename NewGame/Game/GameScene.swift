@@ -52,7 +52,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
         if contact.bodyA.categoryBitMask == 1 || contact.bodyB.categoryBitMask == 1 {
-            // Increment score or handle collectible collection
+            //whenever the player and the collectible touch, the collectible disappears and score increments
             if let collectibleNode = (contact.bodyA.categoryBitMask == 2) ? contact.bodyA.node : contact.bodyB.node {
                 collectibleNode.removeFromParent()
             }

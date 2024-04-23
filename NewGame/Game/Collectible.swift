@@ -15,7 +15,7 @@ extension GameScene {
         //define random width according to screen size for gameplay purposes
         let randomWidth = CGFloat.random(in: (responsiveWidth / 3)...responsiveWidth)
         
-        //create tbe collectible
+        //create tbe collectible, refer to player for more information about the functionalities
         let collectible = SKSpriteNode(imageNamed: "pickup")
         collectible.zPosition = 11
         collectible.size = CGSize(width: 35, height: 60)
@@ -23,6 +23,7 @@ extension GameScene {
         collectible.physicsBody?.affectedByGravity = false
         collectible.physicsBody?.categoryBitMask = 2 //this is for contact collisions, must be unique
         collectible.physicsBody?.contactTestBitMask = 1 //must equal player's category bitmask
+        collectible.physicsBody?.collisionBitMask = 0 //and this prevents the collectible to touch eachother
         collectible.position = CGPoint(x: randomWidth, y: responsiveHeight)
         addChild(collectible)
         
@@ -47,9 +48,13 @@ extension GameScene {
     }
     
     func startCreatingCollectibles() {
+        
+        //this starts the creation
         let create = SKAction.run {
             self.createCollectible()
         }
+        
+        //and waits before repeating
         let wait = SKAction.wait(forDuration: 2)
         let sequence = SKAction.sequence([create, wait])
         let repeatForever = SKAction.repeatForever(sequence)

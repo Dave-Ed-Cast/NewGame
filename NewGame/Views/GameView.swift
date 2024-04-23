@@ -8,43 +8,28 @@
 import SwiftUI
 import SpriteKit
 
-struct GameViewUI: UIViewRepresentable {
-    func makeUIView(context: Context) -> SKView {
-        
-        var screenWidth: CGFloat { UIScreen.main.bounds.size.width }
-        var screenHeight: CGFloat { UIScreen.main.bounds.size.height }
-        
-        let view = SKView()
-        let scene = GameScene()
-        scene.size = CGSize(width: screenWidth, height: screenHeight)
-        scene.scaleMode = .fill
-        view.presentScene(scene)
-        
-        // Enable FPS and physics debugging
-        view.showsFPS = true
-        view.showsPhysics = true
-        
-        return view
-    }
-    
-    func updateUIView(_ uiView: SKView, context: Context) {
-    }
-    
-    typealias UIViewType = SKView
-}
-
 struct GameView: View {
     
+    /*
+     we need to connect the GameScene which is a SKScene to SwiftUI so that we can have a preview. While doing so, we are using the game state, the game logic and a scene wrapper.
+     The gamestate must be bound, meaning that it will change according to some modifications that happen elsewhere.
+     The StateObject refers to the lifecycle of Observable object
+     The State is just to manage the state of the view, therefore position and other characteristics.
+     */
     @Binding var currentGameState: GameState
     @StateObject var gameLogic: GameLogic = GameLogic.shared
     @State var sceneWrapper = SceneWrapper()
     
     var body: some View {
+        
+        let responsiveWidth = UIScreen.main.bounds.width
+        let responsiveHeight = UIScreen.main.bounds.height
+        
         ZStack {
             SpriteView(scene: sceneWrapper.scene)
             
             ScoreView(gameLogic: GameLogic.shared)
-                .position(CGPoint(x: UIScreen.main.bounds.width / 1.75, y: UIScreen.main.bounds.height / 7))
+                .position(CGPoint(x: responsiveWidth / 1.75, y: responsiveHeight / 7))
             
         }
         .ignoresSafeArea()

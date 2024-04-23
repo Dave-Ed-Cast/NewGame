@@ -14,44 +14,42 @@ extension GameScene {
     
     func createBackground() {
         let folderURL = "Background/Layers"
-        
         for i in 0...8 {
+            
             let layer: SKSpriteNode = SKSpriteNode(imageNamed: "\(folderURL)/\(i)")
+            let layerPosition = backgroundLayers[i].position
+            let layerSizeWidth = backgroundLayers[i].size.width
+            
             layer.zPosition = -1
             layer.position = CGPoint(x: responsiveWidth / 2, y: responsiveHeight / 2)
             layer.setScale(responsiveHeight / responsiveWidth) //this setScale should work for most platforms
             backgroundLayers.append(layer)
+            
+            let replicatedLayer = backgroundLayers[i].copy() as! SKSpriteNode
+            replicatedLayer.position = CGPoint(x: layerPosition.x + layerSizeWidth, y: layerPosition.y)
+            
+            let moveLeftAction = SKAction.moveBy(x: -layerSizeWidth, y: 0, duration: Double(i) * sqrt(0.5))
+            let resetPositionAction = SKAction.moveBy(x: layerSizeWidth, y: 0, duration: 0)
+            let sequenceAction = SKAction.sequence([moveLeftAction, resetPositionAction])
+            let repeatForeverAction = SKAction.repeatForever(sequenceAction)
+            
             addChild(backgroundLayers[i])
+            addChild(replicatedLayer)
             
-            if i < 7 {
-                let replicatedLayer = backgroundLayers[i].copy() as! SKSpriteNode
-                replicatedLayer.position = CGPoint(x: backgroundLayers[i].position.x + backgroundLayers[i].size.width, y: backgroundLayers[i].position.y)
-                
-                let moveLeftAction = SKAction.moveBy(x: -backgroundLayers[i].size.width, y: 0, duration: 8)
-                let resetPositionAction = SKAction.moveBy(x: backgroundLayers[i].size.width, y: 0, duration: 0)
-                let sequenceAction = SKAction.sequence([moveLeftAction, resetPositionAction])
-                let repeatForeverAction = SKAction.repeatForever(sequenceAction)
-                
-                
-                addChild(replicatedLayer)
-                backgroundLayers[i].run(repeatForeverAction)
-                replicatedLayer.run(repeatForeverAction)
-            }
+            backgroundLayers[i].run(repeatForeverAction)
+            replicatedLayer.run(repeatForeverAction)
+
         }
         
-        for i in 0...6 {
-            
-            
-        }
         
-//        let replicatedLayer0 = backgroundLayers[0].copy() as! SKSpriteNode
-//        replicatedLayer0.position = CGPoint(x: backgroundLayers[0].position.x + backgroundLayers[0].size.width, y: backgroundLayers[0].position.y)
-//        addChild(replicatedLayer0)
-//      
-//        
-//        
-//        
-//        replicatedLayer0.run(repeatForeverAction)
+        //        let replicatedLayer0 = backgroundLayers[0].copy() as! SKSpriteNode
+        //        replicatedLayer0.position = CGPoint(x: backgroundLayers[0].position.x + backgroundLayers[0].size.width, y: backgroundLayers[0].position.y)
+        //        addChild(replicatedLayer0)
+        //
+        //
+        //
+        //
+        //        replicatedLayer0.run(repeatForeverAction)
     }
 }
 

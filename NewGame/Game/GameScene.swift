@@ -31,7 +31,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player")
     var playerVelocity = CGPoint(x: 0, y: 1)
     let maxVelocity: CGFloat = 10.0
-    var backgroundLayers: [SKSpriteNode] = []
+    var layerSize: [SKSpriteNode] = []
     
     
     override func didMove(to view: SKView) {

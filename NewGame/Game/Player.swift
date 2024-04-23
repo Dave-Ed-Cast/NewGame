@@ -28,7 +28,7 @@ extension GameScene {
          
          */
         player.position = CGPoint(x: UIScreen.main.bounds.size.width / 4 , y: UIScreen.main.bounds.height / 2)
-        player.zPosition = 1
+        player.zPosition = 10
         player.size = CGSize(width: 100, height: 100)
         player.name = "Player"
         player.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: player.size.width / 2, height: player.size.height / 2))

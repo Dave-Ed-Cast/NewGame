@@ -17,7 +17,7 @@ extension GameScene {
         
         //create tbe collectible
         let collectible = SKSpriteNode(imageNamed: "pickup")
-        collectible.zPosition = 0
+        collectible.zPosition = 11
         collectible.size = CGSize(width: 35, height: 60)
         collectible.physicsBody = SKPhysicsBody(rectangleOf: collectible.size)
         collectible.physicsBody?.affectedByGravity = false

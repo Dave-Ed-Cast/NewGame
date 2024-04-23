@@ -44,7 +44,7 @@ struct GameView: View {
             SpriteView(scene: sceneWrapper.scene)
             
             ScoreView(gameLogic: GameLogic.shared)
-                .position(CGPoint(x: UIScreen.main.bounds.width / 1.8, y: UIScreen.main.bounds.height / 8))
+                .position(CGPoint(x: UIScreen.main.bounds.width / 1.75, y: UIScreen.main.bounds.height / 7))
             
         }
         .ignoresSafeArea()

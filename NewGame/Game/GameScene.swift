@@ -38,7 +38,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Setup your scene here
         physicsWorld.contactDelegate = self
         
-
         createBackground()
         createPlayer()
         startCreatingCollectibles()

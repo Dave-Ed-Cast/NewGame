@@ -28,6 +28,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var gameLogic: GameLogic = GameLogic.shared
     var isMovingUp: Bool = false
+    var touchingScreen: Bool = false
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player")
     var playerVelocity = CGPoint(x: 0, y: 1)
     let maxVelocity: CGFloat = 10.0
@@ -46,8 +47,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         
-        movePlayerUpAndDown()
-        
+//        movePlayerUpAndDown()
+        playerMovement()
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -61,10 +62,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        isMovingUp = true
+
+        touchingScreen = true
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        isMovingUp = false
+
+        touchingScreen = false
     }
 }

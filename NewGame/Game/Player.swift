@@ -35,6 +35,7 @@ extension GameScene {
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.categoryBitMask = 1
         player.physicsBody?.contactTestBitMask = 1
+        player.physicsBody?.collisionBitMask = 0
         addChild(player)
     }
     
@@ -63,6 +64,38 @@ extension GameScene {
         // the player is not moving up and moving downwards => reduce the velocity, else increase
         playerVelocity.y += (!isMovingUp && playerVelocity.y < 0) ? 1.5 : -1.5
         
-        
     }
+    
+    func playerMovement() {
+        // Apply impulse only when the screen is touched
+        if touchingScreen {
+            let impulseMagnitude: CGFloat = 30 // Adjust impulse magnitude as needed
+            let impulse = CGVector(dx: 0, dy: impulseMagnitude)
+            player.physicsBody?.applyImpulse(impulse)
+        } else {
+            let impulseMagnitude: CGFloat = -2 // Adjust impulse magnitude as needed
+            let impulse = CGVector(dx: 0, dy: impulseMagnitude)
+            player.physicsBody?.applyImpulse(impulse)
+        }
+        
+        let maxVelocity: CGFloat = 220
+        if let playerPhysicsBody = player.physicsBody {
+            let currentVelocityX = playerPhysicsBody.velocity.dx
+            let currentVelocityY = playerPhysicsBody.velocity.dy
+            let clampedVelocityX = min(max(currentVelocityX, -maxVelocity), maxVelocity)
+            let clampedVelocityY = min(max(currentVelocityY, -maxVelocity), maxVelocity)
+            playerPhysicsBody.velocity = CGVector(dx: clampedVelocityX, dy: clampedVelocityY)
+        }
+        
+        // Ensure the player stays within the screen bounds vertically
+        let minX: CGFloat = player.size.width / 2
+        let maxX: CGFloat = size.width - player.size.width / 2
+        player.position.x = max(min(player.position.x, maxX), minX)
+        
+        // Ensure the player stays within the screen bounds horizontally
+        let minY: CGFloat = player.size.height / 2
+        let maxY: CGFloat = size.height - player.size.height / 2
+        player.position.y = max(min(player.position.y, maxY), minY)
+    }
+    
 }

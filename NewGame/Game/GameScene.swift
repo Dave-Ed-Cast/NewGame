@@ -30,10 +30,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var isMovingUp: Bool = false
     var touchingScreen: Bool = false
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player")
-    var playerVelocity = CGPoint(x: 0, y: 1)
-    let maxVelocity: CGFloat = 10.0
     var backgroundLayers: [SKSpriteNode] = []
-    
     
     override func didMove(to view: SKView) {
         // Setup your scene here
@@ -46,8 +43,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-        
-//        movePlayerUpAndDown()
         playerMovement()
     }
     
@@ -62,12 +57,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
         touchingScreen = true
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-
         touchingScreen = false
     }
 }

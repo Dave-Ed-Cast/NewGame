@@ -35,66 +35,23 @@ extension GameScene {
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.categoryBitMask = 1
         player.physicsBody?.contactTestBitMask = 1
-        player.physicsBody?.collisionBitMask = 0
+        player.physicsBody?.collisionBitMask = 0 //set to 0 because whenever it collides, it doesn't change the position caused by the collision
         addChild(player)
     }
     
     //this function is the controls of the player
-    func movePlayerUpAndDown() {
-        
-        /*
-         first things first, the velocity must be defined. Considering this game to be a horizontal game (landscape as the technician term would suggest) we have to consider the y coordinate.
-         Then we are going to moove the player and the velocity must be set.
-         The velocity direction is changed by tapping and holding the screen, by default the player will fall
-         Then we have a max size and min size that serve as edges for the screen.
-         It is important to note that the concept of drag has been added, for the reason of having some sort of reality in the movement
-         */
-        let dragFactor: CGFloat = 0.7
-        playerVelocity.y *= (1 - dragFactor)
-        playerVelocity.y = max(-maxVelocity, min(playerVelocity.y, maxVelocity))
-        
-        player.position.y += playerVelocity.y
-        player.position.y += isMovingUp ? 5 : -5
-        
-        let minY = player.size.height / 1.5
-        let maxY = size.height - player.size.height / 1.5
-        
-        player.position.y = max(min(player.position.y, maxY), minY)
-        
-        // the player is not moving up and moving downwards => reduce the velocity, else increase
-        playerVelocity.y += (!isMovingUp && playerVelocity.y < 0) ? 1.5 : -1.5
-        
-    }
-    
     func playerMovement() {
-        // Apply impulse only when the screen is touched
-        if touchingScreen {
-            let impulseMagnitude: CGFloat = 30 // Adjust impulse magnitude as needed
-            let impulse = CGVector(dx: 0, dy: impulseMagnitude)
-            player.physicsBody?.applyImpulse(impulse)
-        } else {
-            let impulseMagnitude: CGFloat = -2 // Adjust impulse magnitude as needed
-            let impulse = CGVector(dx: 0, dy: impulseMagnitude)
-            player.physicsBody?.applyImpulse(impulse)
-        }
-        
+        //the player flyes upward if he touches the screen
+        let impulseMagnitude: CGFloat = touchingScreen ? 30 : -2
+        let impulse = CGVector(dx: 0, dy: impulseMagnitude)
+        player.physicsBody?.applyImpulse(impulse)
+
         let maxVelocity: CGFloat = 220
-        if let playerPhysicsBody = player.physicsBody {
-            let currentVelocityX = playerPhysicsBody.velocity.dx
-            let currentVelocityY = playerPhysicsBody.velocity.dy
-            let clampedVelocityX = min(max(currentVelocityX, -maxVelocity), maxVelocity)
-            let clampedVelocityY = min(max(currentVelocityY, -maxVelocity), maxVelocity)
-            playerPhysicsBody.velocity = CGVector(dx: clampedVelocityX, dy: clampedVelocityY)
-        }
+        player.physicsBody?.velocity = CGVector(dx: 0, dy: min(max(player.physicsBody!.velocity.dy, -maxVelocity), maxVelocity))
         
-        // Ensure the player stays within the screen bounds vertically
-        let minX: CGFloat = player.size.width / 2
-        let maxX: CGFloat = size.width - player.size.width / 2
-        player.position.x = max(min(player.position.x, maxX), minX)
-        
-        // Ensure the player stays within the screen bounds horizontally
-        let minY: CGFloat = player.size.height / 2
-        let maxY: CGFloat = size.height - player.size.height / 2
+        //the player stays in the bounds of the screen
+        let minY: CGFloat = player.size.height / 1.5
+        let maxY: CGFloat = size.height - player.size.height / 1.5
         player.position.y = max(min(player.position.y, maxY), minY)
     }
     

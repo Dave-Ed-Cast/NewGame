@@ -40,19 +40,45 @@ extension GameScene {
     }
     
     //this function is the controls of the player
+//    func playerMovement() {
+//        //the player flyes upward if he touches the screen
+//        let impulseMagnitude: CGFloat = touchingScreen ? 30 : -2
+//        let impulse = CGVector(dx: 0, dy: impulseMagnitude)
+//        player.physicsBody?.applyImpulse(impulse)
+//
+//        let maxVelocity: CGFloat = 220
+//        player.physicsBody?.velocity = CGVector(dx: 0, dy: min(max(player.physicsBody!.velocity.dy, -maxVelocity), maxVelocity))
+//        
+//        //the player stays in the bounds of the screen
+//        let minY: CGFloat = player.size.height / 1.5
+//        let maxY: CGFloat = size.height - player.size.height / 1.5
+//        player.position.y = max(min(player.position.y, maxY), minY)
+//    }
+    
+   
+
+    
     func playerMovement() {
-        //the player flyes upward if he touches the screen
-        let impulseMagnitude: CGFloat = touchingScreen ? 30 : -2
+        // Gradually adjust impulse magnitude based on touch state
+        if touchingScreen {
+            print("first: \(impulseMagnitude)")
+            impulseMagnitude = min(impulseMagnitude + 1, maxImpulse)
+            print("last: \(impulseMagnitude)")
+        } else {
+            impulseMagnitude = max(impulseMagnitude - 0.1, -2)
+        }
+        
+        // Apply impulse
         let impulse = CGVector(dx: 0, dy: impulseMagnitude)
         player.physicsBody?.applyImpulse(impulse)
 
+        // Limit player velocity
         let maxVelocity: CGFloat = 220
         player.physicsBody?.velocity = CGVector(dx: 0, dy: min(max(player.physicsBody!.velocity.dy, -maxVelocity), maxVelocity))
-        
-        //the player stays in the bounds of the screen
+
+        // Ensure player stays within screen bounds
         let minY: CGFloat = player.size.height / 1.5
         let maxY: CGFloat = size.height - player.size.height / 1.5
         player.position.y = max(min(player.position.y, maxY), minY)
     }
-    
 }

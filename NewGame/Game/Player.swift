@@ -35,35 +35,14 @@ extension GameScene {
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.categoryBitMask = 1
         player.physicsBody?.contactTestBitMask = 1
-        player.physicsBody?.collisionBitMask = 0 //set to 0 because whenever it collides, it doesn't change the position caused by the collision
+        player.physicsBody?.collisionBitMask = 0 //set to 0 so it doesn't change the position caused by the collision
         addChild(player)
     }
     
-    //this function is the controls of the player
-//    func playerMovement() {
-//        //the player flyes upward if he touches the screen
-//        let impulseMagnitude: CGFloat = touchingScreen ? 30 : -2
-//        let impulse = CGVector(dx: 0, dy: impulseMagnitude)
-//        player.physicsBody?.applyImpulse(impulse)
-//
-//        let maxVelocity: CGFloat = 220
-//        player.physicsBody?.velocity = CGVector(dx: 0, dy: min(max(player.physicsBody!.velocity.dy, -maxVelocity), maxVelocity))
-//        
-//        //the player stays in the bounds of the screen
-//        let minY: CGFloat = player.size.height / 1.5
-//        let maxY: CGFloat = size.height - player.size.height / 1.5
-//        player.position.y = max(min(player.position.y, maxY), minY)
-//    }
-    
+    //this function is the control of the player
     func playerMovement() {
         //adjust impulse magnitude based on touch state
-        if touchingScreen {
-            print("first: \(impulseMagnitude)")
-            impulseMagnitude = min(impulseMagnitude + 1, maxImpulse) * 2.2
-            print("last: \(impulseMagnitude)")
-        } else {
-            impulseMagnitude = max(impulseMagnitude - 0.3, -1.5)
-        }
+        impulseMagnitude = touchingScreen ? (min(impulseMagnitude + 1, maxImpulse) * 2.2) : (max(impulseMagnitude - 0.3, -1.5))
         
         //then apply impulse
         let impulse = CGVector(dx: 0, dy: impulseMagnitude)
@@ -73,7 +52,7 @@ extension GameScene {
         let maxVelocity: CGFloat = 200
         player.physicsBody?.velocity = CGVector(dx: 0, dy: min(max(player.physicsBody!.velocity.dy, -maxVelocity), maxVelocity))
 
-        // Ensure player stays within screen bounds
+        //player stays within screen bounds
         let minY: CGFloat = player.size.height / 1.5
         let maxY: CGFloat = size.height - player.size.height / 1.5
         player.position.y = max(min(player.position.y, maxY), minY)

@@ -64,7 +64,7 @@ extension GameScene {
             /*
              this is the core part that defines the movement and its duration. For preview purposes, we cannot really use the layer we created because at runtime of the preview, it is not fast enough to load the information, throwing a preview crash error, therefore we have to use this ugly version of it
              */
-            let moveLeftAction = SKAction.moveBy(x: -backgroundLayers[i].size.width, y: 0, duration: durationMultiplier * Double(i + 3))
+            let moveLeftAction = SKAction.moveBy(x: -backgroundLayers[i].size.width, y: 0, duration: durationMultiplier * 0.75 * Double(i + Int(durationMultiplier * 3)))
             
             //we reset the position so that we can give the illusion of endless repeatition
             let resetPositionAction = SKAction.moveBy(x: backgroundLayers[i].size.width, y: 0, duration: 0)

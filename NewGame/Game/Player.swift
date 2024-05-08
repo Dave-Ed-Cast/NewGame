@@ -55,25 +55,22 @@ extension GameScene {
 //        player.position.y = max(min(player.position.y, maxY), minY)
 //    }
     
-   
-
-    
     func playerMovement() {
-        // Gradually adjust impulse magnitude based on touch state
+        //adjust impulse magnitude based on touch state
         if touchingScreen {
             print("first: \(impulseMagnitude)")
-            impulseMagnitude = min(impulseMagnitude + 1, maxImpulse)
+            impulseMagnitude = min(impulseMagnitude + 1, maxImpulse) * 2.2
             print("last: \(impulseMagnitude)")
         } else {
-            impulseMagnitude = max(impulseMagnitude - 0.1, -2)
+            impulseMagnitude = max(impulseMagnitude - 0.3, -1.5)
         }
         
-        // Apply impulse
+        //then apply impulse
         let impulse = CGVector(dx: 0, dy: impulseMagnitude)
         player.physicsBody?.applyImpulse(impulse)
 
-        // Limit player velocity
-        let maxVelocity: CGFloat = 220
+        //and limit player velocity
+        let maxVelocity: CGFloat = 200
         player.physicsBody?.velocity = CGVector(dx: 0, dy: min(max(player.physicsBody!.velocity.dy, -maxVelocity), maxVelocity))
 
         // Ensure player stays within screen bounds

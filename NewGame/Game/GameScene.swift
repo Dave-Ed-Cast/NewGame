@@ -32,7 +32,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var player: SKSpriteNode = SKSpriteNode(imageNamed: "player")
     var backgroundLayers: [SKSpriteNode] = []
     var impulseMagnitude: CGFloat = 0 // Initialize impulse magnitude
-    let maxImpulse: CGFloat = 1.1 // Maximum impulse magnitude when touching screen
+    let maxImpulse: CGFloat = 1 // Maximum impulse magnitude when touching screen
     
     override func didMove(to view: SKView) {
         // Setup your scene here
